@@ -79,7 +79,7 @@
         <div class="nothing">Nothing Now</div>
       <% } else { %>
         <% for (var j = 0; j < TVProperty[i].Episodes; j++) { %>
-          <% if (((TVProperty[i].Episode_day[j] == new Date().getDate()) && (new Date().getHours() > 8)) || ((TVProperty[i].Episode_day[j] == ((new Date().getDate()) + 1)) && (new Date().getHours() < 9))) { %>
+          <% if (((TVProperty[i].Episode_day[j] == new Date().getDate()) && (new Date().getHours() < 15)) || ((TVProperty[i].Episode_day[j] == ((new Date().getDate()) + 1)) && (new Date().getHours() > 16))) { %>
             <div class="today
               <% if (TVProperty[i].Episode_start_hour[j] * 60 + TVProperty[i].Episode_start_min[j] <= (new Date().getHours() + 9) * 60 + new Date().getMinutes() && TVProperty[i].Episode_end_hour[j] * 60 + TVProperty[i].Episode_end_min[j] > (new Date().getHours() + 9) * 60 + new Date().getMinutes()) { %>now<% } else { %>notplaying<% } %>"><div class="title"><%= TVProperty[i].Episode_name[j] %></div><div class="time"><% if (TVProperty[i].Episode_start_hour[j] < 10) { %>0<% } %><%= TVProperty[i].Episode_start_hour[j] %>:<% if (TVProperty[i].Episode_start_min[j] < 10) { %>0<% } %><%= TVProperty[i].Episode_start_min[j] %> ~ <% if (TVProperty[i].Episode_end_hour[j] < 10) { %>0<% } %><%= TVProperty[i].Episode_end_hour[j] %>:<% if (TVProperty[i].Episode_end_min[j] < 10) { %>0<% } %><%= TVProperty[i].Episode_end_min[j] %></div></div>
           <% } %>
